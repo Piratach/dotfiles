@@ -12,6 +12,7 @@ set showmatch " skipping matching parens
 set matchtime=3 " time for matching paren
 set wildignore+=.pyc,.swp " ignore swp files
 set wildmenu " autocomplete/suggestions
+set colorcolumn=80
 
 " Indent 2 spaces
 set tabstop=2
@@ -21,8 +22,7 @@ set autoindent
 
 syntax on
 
-set mouse=a
-
+set mouse=a " allows the use of mouse
 
 " mappings
 
@@ -32,18 +32,23 @@ set mouse=a
  nnoremap K :let @/ = "" <bar> <CR>
  " Y (yy) to y$ 
  nnoremap y$ yy
- " commenting and uncommenting
- vnoremap + :norm i
- vnoremap - :norm dw <bar> <CR>
  " enter as esc in visual mode
  vnoremap <Return> <Esc>
 
- " leader mapping
+ " leader remapping
  nnoremap <Space> <NOP>
  vnoremap <Space> <NOP>
  :let mapleader = "\<Space>"
- " nerd tree mappings
- nmap <Leader>f :NERDTreeToggle<CR>
+
+ " toggle maximum char limit	
+ function! ToggleC()
+    if &cc == 0
+        let &cc = 80
+    else
+        let &cc = 0
+    endif
+ endfunction
+ nnoremap <Leader>l :call ToggleC()<CR>
 
 " From samflattery
 " --
@@ -87,6 +92,7 @@ Plugin 'unblevable/quick-scope'
 Plugin 'preservim/nerdtree'
 Plugin 'dense-analysis/ale'
 Plugin 'junegunn/goyo.vim'
+Plugin 'preservim/nerdcommenter'
 
 call vundle#end()
 
@@ -118,6 +124,10 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='base16'
 
 " --- Plugin configs ---
+
+" -- Nerd Tree --
+nnoremap <Leader>f :NERDTreeToggle<CR>
+
 " -- Quickscope --
 " Trigger a highlight only when pressing f, F, t, and T.
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']"
@@ -126,3 +136,9 @@ highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=und
 
 " -- Ale --
 let b:ale_fixers = {'sml': ['prettier', 'eslint']}
+
+" -- Nerdcommenter --
+" one space after every comment
+let NERDSpaceDelims=1 
+" remap + to commenting/uncommenting
+vnoremap + :call NERDComment(0,"toggle")<CR> 
