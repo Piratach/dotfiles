@@ -8,7 +8,10 @@ set number
 set showcmd
 set incsearch
 set hlsearch
+set showmatch " skipping matching parens
+set matchtime=3 " time for matching paren
 set wildignore+=.pyc,.swp " ignore swp files
+set wildmenu " autocomplete/suggestions
 
 " Indent 2 spaces
 set tabstop=2
@@ -20,23 +23,38 @@ syntax on
 
 set mouse=a
 
-" new commands
-command! Vb normal! <C-v>
 
 " mappings
+
+ " jj as es
  inoremap jj <Esc>
- nmap <F6> :NERDTreeToggle<CR>
+ " clear highlight to K
+ nnoremap K :let @/ = "" <bar> <CR>
+ " Y (yy) to y$ 
+ nnoremap y$ yy
+ " commenting and uncommenting
+ vnoremap + :norm i
+ vnoremap - :norm dw <bar> <CR>
+ " enter as esc in visual mode
+ vnoremap <Return> <Esc>
+
+ " leader mapping
+ nnoremap <Space> <NOP>
+ vnoremap <Space> <NOP>
+ :let mapleader = "\<Space>"
+ " nerd tree to F6
+ nmap <Leader>f :NERDTreeToggle<CR>
 
 " From samflattery
 " --
 " Make navigating wrapped lines the same as normal
-noremap <silent> k gk
-noremap <silent> j gj
-noremap <silent> gk k
-noremap <silent> gj j
-noremap <silent> ^ g^
-noremap <silent> g^ ^
-noremap <silent> _ g_
+ noremap <silent> k gk
+ noremap <silent> j gj
+ noremap <silent> gk k
+ noremap <silent> gj j
+ noremap <silent> ^ g^
+ noremap <silent> g^ ^
+ noremap <silent> _ g_
 
 " Make vim open where left off
 " if has("autocmd")
