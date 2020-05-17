@@ -42,7 +42,7 @@ set mouse=a
  nnoremap <Space> <NOP>
  vnoremap <Space> <NOP>
  :let mapleader = "\<Space>"
- " nerd tree to F6
+ " nerd tree mappings
  nmap <Leader>f :NERDTreeToggle<CR>
 
 " From samflattery
@@ -55,6 +55,10 @@ set mouse=a
  noremap <silent> ^ g^
  noremap <silent> g^ ^
  noremap <silent> _ g_
+
+ " Use tab to jump between blocks, because it's easier
+ nnoremap <tab> %
+ vnoremap <tab> %
 
 " Make vim open where left off
 " if has("autocmd")
