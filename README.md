@@ -3,4 +3,4 @@ Currently includes:
 2. zshrc files
 	* zshrc
 	* aliases
-	* shell\_scripts
+	* zsh\_scripts

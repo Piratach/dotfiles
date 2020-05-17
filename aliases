@@ -2,12 +2,13 @@
 alias smlnj="sml"
 
 # repeat last command with sudo
-alias fu="sudo $(fc -ln | tail -n2 | head -n1)"
+# have to fix error message upon startup
+# alias fu="sudo $(fc -ln | tail -n2 | head -n1)"
 
 alias tmux="tmux -2"
 alias remake="make clean; make"
 
-# Git aliases
+### Git aliases ###
 alias gi="git init"
 alias gs="git status -sbu"
 alias gco="git checkout"

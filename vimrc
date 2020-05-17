@@ -29,7 +29,7 @@ set mouse=a " allows the use of mouse
  " jj as es
  inoremap jj <Esc>
  " clear highlight to K
- nnoremap K :let @/ = "" <bar> <CR>
+ nnoremap K :let @/ = "" <Bar> <CR>
  " Y (yy) to y$ 
  nnoremap y$ yy
  " enter as esc in visual mode
@@ -50,20 +50,20 @@ set mouse=a " allows the use of mouse
  endfunction
  nnoremap <Leader>l :call ToggleC()<CR>
 
-" From samflattery
+" From github/samflattery
 " --
 " Make navigating wrapped lines the same as normal
- noremap <silent> k gk
- noremap <silent> j gj
- noremap <silent> gk k
- noremap <silent> gj j
- noremap <silent> ^ g^
- noremap <silent> g^ ^
- noremap <silent> _ g_
+ noremap <Silent> k gk
+ noremap <Silent> j gj
+ noremap <Silent> gk k
+ noremap <Silent> gj j
+ noremap <Silent> ^ g^
+ noremap <Silent> g^ ^
+ noremap <Silent> _ g_
 
  " Use tab to jump between blocks, because it's easier
- nnoremap <tab> %
- vnoremap <tab> %
+ nnoremap <Tab> %
+ vnoremap <Tab> %
 
 " Make vim open where left off
 " if has("autocmd")
@@ -81,11 +81,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 " ----- Vim Plugins --------
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tyrannicaltoucan/vim-deep-space'
-Plugin 'mhartington/oceanic-next'
 Plugin 'junegunn/seoul256.vim'
-Plugin 'tomasr/molokai'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'unblevable/quick-scope'  
