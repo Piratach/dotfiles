@@ -112,7 +112,7 @@ source $ZSH/oh-my-zsh.sh
 # Alias and Functions
 
 source $HOME/.aliases
-source $HOME/.shell_scripts
+source $HOME/.zsh_scripts
 
 alias c='fasd_cd -d'
 
