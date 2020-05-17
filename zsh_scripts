@@ -33,7 +33,7 @@ zl() {
 }
 
 # git functions
-function gcm() {
+function gitcm() {
 	git commit -m "{$1}"; 
 }
 
