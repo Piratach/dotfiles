@@ -32,6 +32,9 @@ zl() {
 	ls
 }
 
+# git functions
+gcm() { git commit -m "${1}" }
+
 # courtesy of github.com/cirrusUK
 
 # EXTRACT FUNCTION | Usage: extract <file>
