@@ -83,6 +83,7 @@ eval "$(fasd --init auto)"
 plugins=(git)
 plugins=(z)
 plugins=(zsh-autosuggestions)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=59'
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,28 +108,20 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
+
 # Alias and Functions
 
-# cdl for going to a directory and printing ls
-cdf() {
-	cd "$1"
-	ls
-}
-
-cdb() {
-	cd ".."
-	ls
-}
-
-smlnj() {
-	sml
-}
+source $HOME/.aliases
+source $HOME/.shell_scripts
 
 alias c='fasd_cd -d'
 
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Some paths added due to local problems -- ignore
 export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3.7/dist-packages/
 export PATH=/usr/local/smlnj/bin:$PATH
+export TERM=xterm-256color
+export PATH=$PATH:/usr/local/go/bin
+
