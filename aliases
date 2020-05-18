@@ -21,4 +21,4 @@ alias gpl="git pull"
 alias gst="git stash"
 alias gstl="git stash list"
 alias glg='git log --graph --oneline --decorate --all'
-alias gpom="git push -u origin master"
+alias gitpom="git push -u origin master"

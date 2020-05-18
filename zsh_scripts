@@ -34,7 +34,7 @@ zl() {
 
 # git functions
 function gitcm() {
-	git commit -m "{$1}"; 
+	git commit -m "$1"; 
 }
 
 # courtesy of github.com/cirrusUK

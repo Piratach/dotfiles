@@ -89,6 +89,7 @@ Plugin 'preservim/nerdtree'
 Plugin 'dense-analysis/ale'
 Plugin 'junegunn/goyo.vim'
 Plugin 'preservim/nerdcommenter'
+Plugin 'edkolev/tmuxline.vim'
 
 call vundle#end()
 
@@ -119,7 +120,9 @@ let g:airline#extensions#tabline#enabled = 1
 
 let g:airline_theme='base16'
 
-" --- Plugin configs ---
+" Match tmux status bar with vim airline
+let g:airline#extensions#tmuxline#enabled = 1
+let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
 
 " -- Nerd Tree --
 nnoremap <Leader>f :NERDTreeToggle<CR>
