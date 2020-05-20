@@ -90,6 +90,7 @@ Plugin 'dense-analysis/ale'
 Plugin 'junegunn/goyo.vim'
 Plugin 'preservim/nerdcommenter'
 Plugin 'edkolev/tmuxline.vim'
+Plugin 'jez/vim-better-sml'
 
 call vundle#end()
 
