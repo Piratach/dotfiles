@@ -35,17 +35,23 @@ source $ZSH/oh-my-zsh.sh
 
 # Alias and Functions
 # Recommended directory $ZSH_CUSTOM/
-source $HOME/.zsh_scripts
-source $HOME/.aliases
+source $HOME/.zsh_scripts.sh
+source $HOME/.aliases.sh
 
 alias c='fasd_cd -d'
 
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# default editor
+export EDITOR='vim'
+alias vim="/usr/local/bin/vim"
+
+# run tmux upon startup
+# if [ "$TMUX" = "" ]; then tmux; fi
+
 # Some paths added due to local problems -- ignore
 export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3.7/dist-packages/
 export PATH=/usr/local/smlnj/bin:$PATH
 export TERM=xterm-256color
 export PATH=$PATH:/usr/local/go/bin
-

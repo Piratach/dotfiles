@@ -48,18 +48,18 @@ set mouse=a " allows the use of mouse
         let &cc = 0
     endif
  endfunction
- nnoremap <Leader>l :call ToggleC()<CR>
+ nnoremap <Leader>k :call ToggleC()<CR>
+
+" Navigating wrapped lines while keeping  _j commands the same
+ nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
+ nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 
 " From github/samflattery
 " --
 " Make navigating wrapped lines the same as normal
- noremap <Silent> k gk
- noremap <Silent> j gj
- noremap <Silent> gk k
- noremap <Silent> gj j
- noremap <Silent> ^ g^
- noremap <Silent> g^ ^
- noremap <Silent> _ g_
+ noremap ^ g^
+ noremap g^ ^
+ noremap _ g_
 
  " Use tab to jump between blocks, because it's easier
  nnoremap <Tab> %
@@ -91,6 +91,7 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'preservim/nerdcommenter'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'jez/vim-better-sml'
+Plugin 'lervag/vimtex'
 
 call vundle#end()
 
@@ -142,3 +143,21 @@ let b:ale_fixers = {'sml': ['prettier', 'eslint']}
 let NERDSpaceDelims=1 
 " remap + to commenting/uncommenting
 vnoremap + :call NERDComment(0,"toggle")<CR> 
+
+" -- Vimtex [will be updated more later] --
+" using skim as the PDF viewer
+" Preferences > reload automatically for live preview
+" Auto-compile mode: \ll
+" Forward-search: \lv
+" Backward-search: No idea yet
+let g:vimtex_view_method='skim'
+
+" closing quickfix window
+nnoremap <Leader>c :cclose<CR>
+
+" closing the quickfix window if it is the only window
+" https://stackoverflow.com/questions/7476126/how-to-automatically-close-the-quick-fix-window-when-leaving-a-file
+aug QFClose
+  au!
+  au WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
+aug END
