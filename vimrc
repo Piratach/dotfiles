@@ -50,6 +50,12 @@ set mouse=a " allows the use of mouse
  endfunction
  nnoremap <Leader>k :call ToggleC()<CR>
 
+ " Mac commands for copying to system's clipboard
+ " Allows much more characters to be copied at once
+ vnoremap <Leader>d :!pbcopy<CR>
+ vnoremap <Leader>y :w !pbcopy<CR><CR>
+ nnoremap <Leader>p :r !pbpaste<CR>
+
 " Navigating wrapped lines while keeping  _j commands the same
  nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
  nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
@@ -80,11 +86,13 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+
+" run vim +PluginInstall +qall from command line to install plugins
 " ----- Vim Plugins --------
 Plugin 'junegunn/seoul256.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'unblevable/quick-scope'  
+Plugin 'unblevable/quick-scope'
 Plugin 'preservim/nerdtree'
 Plugin 'dense-analysis/ale'
 Plugin 'junegunn/goyo.vim'
@@ -92,6 +100,7 @@ Plugin 'preservim/nerdcommenter'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'jez/vim-better-sml'
 Plugin 'lervag/vimtex'
+Plugin 'PyCQA/flake8'
 
 call vundle#end()
 
