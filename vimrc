@@ -51,7 +51,7 @@ set mouse=a " allows the use of mouse
  nnoremap <Leader>k :call ToggleC()<CR>
 
  " Mac commands for copying to system's clipboard
- " Allows much more characters to be copied at once
+ " Allows many more characters to be copied at once
  vnoremap <Leader>d :!pbcopy<CR>
  vnoremap <Leader>y :w !pbcopy<CR><CR>
  nnoremap <Leader>p :r !pbpaste<CR>
