@@ -100,7 +100,6 @@ Plugin 'preservim/nerdcommenter'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'jez/vim-better-sml'
 Plugin 'lervag/vimtex'
-Plugin 'PyCQA/flake8'
 
 call vundle#end()
 
