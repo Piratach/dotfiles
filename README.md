@@ -20,8 +20,7 @@
 	* Esc mapped to jj in insert mode
 	* Esc mapped to <Return> in visual mode
 	* Shift+k (K) to turn off search highlights
-	* Both j and k mapped to gj and gk for navigating line wraps, but commands
-	like 5j and 5k remain the same (does not count line wraps)
+	* Both j and k mapped to gj and gk for navigating line wraps, but commands like 5j and 5k remain the same (does not count line wraps)
 	* % mapped to <Tab>
 	* Leader mapped to <Space>
 
@@ -36,8 +35,7 @@
 	* <Leader> f to toggle nerdtree (files in current directory)  
 
 ### Some Other Plugin Explanations
-	* Quickscope underlines first or second occurrences of characters when
-	f, F, t, or T are pressed
+	* Quickscope underlines first or second occurrences of characters when f, F, t, or T are pressed
 	* Ale is for syntax checking in Vim  
 
 Please note that vimtex configurations are not complete and will be updated
