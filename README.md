@@ -18,22 +18,22 @@
 
 ### General Remaps
 	* Esc mapped to jj in insert mode
-	* Esc mapped to **<Return>** in visual mode
+	* Esc mapped to <Return> in visual mode
 	* Shift+k (K) to turn off search highlights
 	* Both j and k mapped to gj and gk for navigating line wraps, but commands
 	like 5j and 5k remain the same (does not count line wraps)
-	* % mapped to **<Tab>**
-	* Leader mapped to **<Space>**
+	* % mapped to <Tab>
+	* Leader mapped to <Space>
 
 ### Leader Remaps
-	* **<Leader>** k to toggle colour column
-	* **<Leader>** y for yanking to Mac's clipboard
-	* **<Leader>** d for deleting and yanking to Mac's clipboard
-	* **<Leader>** p for pasting from Mac's clipboard  
+	* <Leader> k to toggle colour column
+	* <Leader> y for yanking to Mac's clipboard
+	* <Leader> d for deleting and yanking to Mac's clipboard
+	* <Leader> p for pasting from Mac's clipboard  
 
 ### Plugin-specific Remaps  
 	* + used for toggling between comments and code
-	* **<Leader>** f to toggle nerdtree (files in current directory)  
+	* <Leader> f to toggle nerdtree (files in current directory)  
 
 ### Some Other Plugin Explanations
 	* Quickscope underlines first or second occurrences of characters when
