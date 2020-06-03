@@ -1,3 +1,5 @@
+# from https://stackoverflow.com/questions/23703923/gitignore-is-not-ignoring-my-vim-temporary-files
+
 # swap
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
