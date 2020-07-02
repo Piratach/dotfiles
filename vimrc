@@ -15,10 +15,16 @@ set wildmenu " autocomplete/suggestions
 set colorcolumn=80
 
 " Indent 2 spaces
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set autoindent
+autocmd FileType * setlocal tabstop=2 shiftwidth=2 softtabstop=2 autoindent expandtab
+
+" For python files only
+autocmd FileType py setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent
+
+" set tabstop=2
+" set shiftwidth=2
+" set softtabstop=2
+" set autoindent
+" set expandtab " tabs are spaces
 
 syntax on
 
