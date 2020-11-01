@@ -12,13 +12,15 @@ set showmatch " skipping matching parens
 set matchtime=3 " time for matching paren
 set wildignore+=.pyc,.swp " ignore swp files
 set wildmenu " autocomplete/suggestions
-set colorcolumn=80
 
-" Indent 2 spaces
-autocmd FileType * setlocal tabstop=2 shiftwidth=2 softtabstop=2 autoindent expandtab
+" Default Config - indent 2 spaces, maximum char per line = 80
+autocmd FileType * setlocal tabstop=2 shiftwidth=2 softtabstop=2 autoindent expandtab colorcolumn=80
 
-" For python files only
-autocmd FileType py setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent
+" cpp files - indent 2 spaces, maximum char per line = 120
+autocmd FileType cpp setlocal tabstop=2 shiftwidth=2 softtabstop=2 autoindent expandtab colorcolumn=120
+
+" py files - indent 4 spaces, maximum char per line = 80
+autocmd FileType py setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent colorcolumn=80
 
 " set tabstop=2
 " set shiftwidth=2
@@ -35,7 +37,7 @@ set mouse=a " allows the use of mouse
  " jj as es
  inoremap jj <Esc>
  " clear highlight to K
- nnoremap K :let @/ = "" <Bar> <CR>
+ nnoremap & :let @/ = "" <Bar> <CR>
  " Y (yy) to y$ 
  nnoremap y$ yy
  " enter as esc in visual mode
@@ -55,6 +57,20 @@ set mouse=a " allows the use of mouse
     endif
  endfunction
  nnoremap <Leader>k :call ToggleC()<CR>
+
+" Toggle ALE signcolumn. Works only on vim>=8.0 or NeoVim
+" https://stackoverflow.com/questions/18319284/vim-sign-column-toggle/18322752#18322752
+function! ToggleSignColumn()
+    if !exists("b:signcolumn_on") || b:signcolumn_on
+        set signcolumn=no
+        let b:signcolumn_on=0
+    else
+        set signcolumn=auto
+        let b:signcolumn_on=1
+    endif
+endfunction
+
+noremap <Leader>l :call ToggleSignColumn()<CR> 
 
  " Mac commands for copying to system's clipboard
  " Allows many more characters to be copied at once
@@ -106,6 +122,7 @@ Plugin 'preservim/nerdcommenter'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'jez/vim-better-sml'
 Plugin 'lervag/vimtex'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 
@@ -142,6 +159,9 @@ let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
 
 " -- Nerd Tree --
 nnoremap <Leader>f :NERDTreeToggle<CR>
+
+map <S-l>  :bn<CR>
+map <S-h> :bp<CR>
 
 " -- Quickscope --
 " Trigger a highlight only when pressing f, F, t, and T.
