@@ -18,7 +18,12 @@ set wildmenu " autocomplete/suggestions
 " C++
 " cpp files - indent 2 spaces, maximum char per line = 120
 autocmd FileType cpp setlocal tabstop=2 shiftwidth=2 softtabstop=2 autoindent expandtab colorcolumn=120
+" clang-format (manually - ctrl+k)
+map <C-k> :py3f /usr/local/Cellar/clang-format/11.0.0/share/clang/clang-format.py<CR>
 " clang-format (on save), comment out if no clang-format
+" TODO: this will fail on the very first save as file does not exist
+" Current (bad) fix: add try/except to clang-format.py at the corresponding
+" line
 function! Formatonsave()
   let l:formatdiff = 1
   " replace line below with where clang-format.py is located
