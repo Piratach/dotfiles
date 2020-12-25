@@ -25,7 +25,7 @@ HIST_STAMPS="yyyy-mm-dd" # the most logical format :-)
 
 # other optional plugins: osx, brew
 # too many plugins can slow down startup time
-plugins=(git z zsh-autosuggestions extract)
+plugins=(git z zsh-autosuggestions extract ssh-agent)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=59'
 
@@ -51,6 +51,7 @@ alias vim="/usr/local/bin/vim"
 # if [ "$TMUX" = "" ]; then tmux; fi
 
 # Some paths added due to local problems -- ignore
+export GOPATH=$HOME/git-repos/15440/15440-P3/
 export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3.7/dist-packages/
 export PATH=/usr/local/smlnj/bin:$PATH
 export TERM=xterm-256color
