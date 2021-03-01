@@ -26,6 +26,27 @@ function cdf() {
 	fi
 }
 
+# moves to another directory within the same subdirectory
+function cds() {
+  if [ -n "$1" ]
+  then
+    dirname="../${1}"
+    [[ -d "$dirname" ]] || { printf "Not a valid directory! :(\n" "$1" >&2; return 1; }
+    cd ..;
+    cd "$1";
+    ls;
+  else
+    cd;
+    ls;
+  fi
+}
+
+# replaces space in filename. Uses a bash script
+function space-replace() {
+  ~/space-replacer.sh "$1";
+  ls;
+}
+
 # uses the z plugin and then ls
 zl() {
 	z "$1";
