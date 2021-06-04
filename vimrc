@@ -13,30 +13,41 @@ set matchtime=3 " time for matching paren
 set wildignore+=.pyc,.swp " ignore swp files
 set wildmenu " autocomplete/suggestions
 
+" ---------------------------
+" Default Config - indent 2 spaces, maximum char per line = 80
+autocmd FileType * setlocal tabstop=2 shiftwidth=2 softtabstop=2 autoindent expandtab colorcolumn=80
+
+" ---------------------------
 " Language Specific Configs
 " ---------------------------
 " C++
 " cpp files - indent 2 spaces, maximum char per line = 120
-autocmd FileType cpp setlocal tabstop=2 shiftwidth=2 softtabstop=2 autoindent expandtab colorcolumn=120
+" Currently changed for the duration of the wunderpus project
+autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent expandtab colorcolumn=120
 " clang-format (manually - ctrl+k)
 map <C-k> :py3f /usr/local/Cellar/clang-format/11.0.0/share/clang/clang-format.py<CR>
 " clang-format (on save), comment out if no clang-format
 " TODO: this will fail on the very first save as file does not exist
 " Current (bad) fix: add try/except to clang-format.py at the corresponding
 " line
-function! Formatonsave()
-  let l:formatdiff = 1
-  " replace line below with where clang-format.py is located
-  py3f /usr/local/Cellar/clang-format/11.0.0/share/clang/clang-format.py
-endfunction
-autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
+" function! Formatonsave()
+  " let l:formatdiff = 1
+  " " replace line below with where clang-format.py is located
+  " py3f /usr/local/Cellar/clang-format/11.0.0/share/clang/clang-format.py
+" endfunction
+" autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
 " ---------------------------
 " Python
 " py files - indent 4 spaces, maximum char per line = 80
 autocmd FileType py setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent colorcolumn=80
 " ---------------------------
-" Default Config - indent 2 spaces, maximum char per line = 80
-autocmd FileType * setlocal tabstop=2 shiftwidth=2 softtabstop=2 autoindent expandtab colorcolumn=80
+" C
+" c files - indent 4 spaces, maximum char per line = 120
+autocmd FileType c setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent colorcolumn=120
+" ---------------------------
+" CUDA
+" cu files - indent 4 spaces, maximum char per line = 120
+autocmd FileType cu setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent colorcolumn=120
 " ---------------------------
 
 " set tabstop=2
