@@ -32,5 +32,4 @@ alias gcc="gcc-9"
 alias python3="python3.6"
 
 ### Personal Folder Aliases -- update to fit needs ###
-alias repos="cdf ~/git-repos"
-alias cmu="cdf ~/Desktop/Cosmos/CMU/fall2020"
+alias repos="cdf ~/repos"
