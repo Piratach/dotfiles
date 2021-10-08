@@ -1,4 +1,4 @@
-# Dotfiles  
+# [Dotfiles](https://github.com/Piratach/dotfiles)
 
 ## Contents  
 1. vimrc (vimtex is incomplete)
