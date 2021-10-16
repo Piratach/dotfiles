@@ -12,6 +12,14 @@ set showmatch " skipping matching parens
 set matchtime=3 " time for matching paren
 set wildignore+=.pyc,.swp " ignore swp files
 set wildmenu " autocomplete/suggestions
+set viminfo='100,<500,s100,h
+" https://stackoverflow.com/questions/3676855/vim-limited-line-memory
+" 100 Marks will be remembered for the last 100 edited files.
+" <500 Limits the number of lines saved for each register to 500 lines; if a
+"       register contains more than 1000 lines, only the first 500 lines are
+"       saved.
+" s100 Registers with more than 100 KB of text are skipped
+" h Disables search highlighting when Vim starts.
 
 " ---------------------------
 " Default Config - indent 2 spaces, maximum char per line = 80
@@ -204,7 +212,7 @@ let b:ale_fixers = {'sml': ['prettier', 'eslint']}
 " one space after every comment
 let NERDSpaceDelims=1 
 " remap + to commenting/uncommenting
-vnoremap + :call NERDComment(0,"toggle")<CR> 
+vnoremap + :call nerdcommenter#Comment(0,"toggle")<CR> 
 
 " -- Vimtex [will be updated more later] --
 " using skim as the PDF viewer
@@ -212,7 +220,23 @@ vnoremap + :call NERDComment(0,"toggle")<CR>
 " Auto-compile mode: \ll
 " Forward-search: \lv
 " Backward-search: No idea yet
-let g:vimtex_view_method='skim'
+
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+" Default compiling format
+let g:Tex_DefaultTargetFormat='pdf'
+
+" Never Forget, To set the default viewer:: Very Important
+let g:Tex_ViewRule_pdf = 'zathura'
+
+function! Synctex()
+        " remove 'silent' for debugging
+        execute "silent !zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . bufname('%') . " " . g:syncpdf
+endfunction
+map <C-enter> :call Synctex()<cr>
 
 " closing quickfix window
 nnoremap <Leader>c :cclose<CR>
