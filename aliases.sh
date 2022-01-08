@@ -1,12 +1,11 @@
 ### General aliases ###
 alias smlnj="sml"
 
-# repeat last command with sudo
-# have to fix error message upon startup
-# alias fu="sudo $(fc -ln | tail -n2 | head -n1)"
-
 alias tmux="tmux -2"
-alias remake="make clean; make"
+
+## i3 aliases ###
+alias config="vim ~/.i3/config"
+alias xupdate="xrdb -merge ~/.Xresources"
 
 ### Git aliases ###
 alias gi="git init"
@@ -27,9 +26,9 @@ alias gitpom="git push -u origin main"
 # this uses g++ and gcc instead of macOS's clang
 alias g++="g++-9"
 alias gcc="gcc-9"
+alias remake="make clean; make"
 
 ### Python Aliases ###
-alias python3="python3.6"
 
 ### Personal Folder Aliases -- update to fit needs ###
 alias repos="cdf ~/repos"
