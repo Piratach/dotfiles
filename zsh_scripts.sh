@@ -58,6 +58,21 @@ function gitcm() {
 	git commit -m "$1"; 
 }
 
+function token() {
+  echo "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";
+}
+
+# streamlink functions
+function twitch() {
+  if [ -n "$1" ]
+  then
+    link="https://www.twitch.tv/${1}"
+    streamlink --player vlc "$link" best
+  else
+    echo "need twitch link...";
+  fi
+}
+
 # courtesy of github.com/cirrusUK
 
 # Compile and execute a C source on the fly
