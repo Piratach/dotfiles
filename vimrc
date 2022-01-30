@@ -130,10 +130,10 @@ noremap <Leader>l :call ToggleSignColumn()<CR>
  vnoremap <Tab> %
 
 " Make vim open where left off
-" if has("autocmd")
-"   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-"   \| exe "normal! g'\"" | endif
-" endif
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+  \| exe "normal! g'\"" | endif
+endif
 " --
 
 " needed for vundle
@@ -146,19 +146,21 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " run vim +PluginInstall +qall from command line to install plugins
+" or run :PluginInstall in vim
 " ----- Vim Plugins --------
+Plugin 'dense-analysis/ale'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'fatih/vim-go'
+Plugin 'jez/vim-better-sml'
+Plugin 'jez/vim-ispc'
+Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/seoul256.vim'
+Plugin 'lervag/vimtex'
+Plugin 'preservim/nerdcommenter'
+Plugin 'preservim/nerdtree'
+Plugin 'unblevable/quick-scope'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'unblevable/quick-scope'
-Plugin 'preservim/nerdtree'
-Plugin 'dense-analysis/ale'
-Plugin 'junegunn/goyo.vim'
-Plugin 'preservim/nerdcommenter'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'jez/vim-better-sml'
-Plugin 'lervag/vimtex'
-Plugin 'fatih/vim-go'
 
 call vundle#end()
 
