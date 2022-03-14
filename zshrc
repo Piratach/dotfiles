@@ -35,7 +35,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Alias and Functions
 # Recommended directory $ZSH_CUSTOM/
-source $HOME/.zsh_scripts.sh
+source $HOME/.zsh_functions.sh
 source $HOME/.aliases.sh
 
 alias c='fasd_cd -d'
