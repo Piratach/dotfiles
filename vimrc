@@ -23,15 +23,17 @@ set viminfo='100,<500,s100,h
 
 " ---------------------------
 " Default Config - indent 2 spaces, maximum char per line = 80
-autocmd FileType * setlocal tabstop=2 shiftwidth=2 softtabstop=2 autoindent expandtab colorcolumn=80
+autocmd FileType * setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent expandtab colorcolumn=120
 
 " ---------------------------
 " Language Specific Configs
 " ---------------------------
-" C++
-" cpp files - indent 2 spaces, maximum char per line = 120
+" C/C++ (includes cu, c.doxygen, cc, hpp etc.)
+" cpp files - indent 4 spaces, maximum char per line = 120
 " Currently changed for the duration of the wunderpus project
-autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent expandtab colorcolumn=120
+autocmd FileType c* setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent expandtab colorcolumn=120
+autocmd FileType h* setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent expandtab colorcolumn=120
+
 " clang-format (manually - ctrl+k)
 map <C-k> :py3f /usr/local/Cellar/clang-format/11.0.0/share/clang/clang-format.py<CR>
 " clang-format (on save), comment out if no clang-format
@@ -44,25 +46,12 @@ map <C-k> :py3f /usr/local/Cellar/clang-format/11.0.0/share/clang/clang-format.p
   " py3f /usr/local/Cellar/clang-format/11.0.0/share/clang/clang-format.py
 " endfunction
 " autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
+
 " ---------------------------
 " Python
 " py files - indent 4 spaces, maximum char per line = 80
 autocmd FileType py setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent colorcolumn=80
 " ---------------------------
-" C
-" c files - indent 4 spaces, maximum char per line = 120
-autocmd FileType c setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent colorcolumn=120
-" ---------------------------
-" CUDA
-" cu files - indent 4 spaces, maximum char per line = 120
-autocmd FileType cu setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent colorcolumn=120
-" ---------------------------
-
-" set tabstop=2
-" set shiftwidth=2
-" set softtabstop=2
-" set autoindent
-" set expandtab " tabs are spaces
 
 syntax on
 
@@ -106,13 +95,22 @@ function! ToggleSignColumn()
     endif
 endfunction
 
-noremap <Leader>l :call ToggleSignColumn()<CR> 
+ noremap <Leader>l :call ToggleSignColumn()<CR> 
 
+ " ----------------------------------------------------------------------------
+ " Mac Specific Configurations (I am no longer using macOS)
+ "
  " Mac commands for copying to system's clipboard
  " Allows many more characters to be copied at once
- vnoremap <Leader>d :!pbcopy<CR>
- vnoremap <Leader>y :w !pbcopy<CR><CR>
- nnoremap <Leader>p :r !pbpaste<CR>
+ " vnoremap <Leader>d :!pbcopy<CR>
+ " vnoremap <Leader>y :w !pbcopy<CR><CR>
+ " nnoremap <Leader>p :r !pbpaste<CR>
+ " ----------------------------------------------------------------------------
+
+" TODO: Figure out which file type and use the doxygen filetype for that 
+"       automatically.
+" This turns on doxygen highlighting for cpp files.
+ noremap <Leader>d :set ft=cpp.doxygen<CR> 
 
 " Navigating wrapped lines while keeping  _j commands the same
  nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
@@ -214,11 +212,12 @@ let b:ale_fixers = {'sml': ['prettier', 'eslint']}
 " one space after every comment
 let NERDSpaceDelims=1 
 " remap + to commenting/uncommenting
+" Deprecated (use for older version of VIM)
+" vnoremap + :call NERDComment(0,"toggle")<CR> 
 vnoremap + :call nerdcommenter#Comment(0,"toggle")<CR> 
 
 " -- Vimtex [will be updated more later] --
-" using skim as the PDF viewer
-" Preferences > reload automatically for live preview
+" using zathura as the PDF viewer
 " Auto-compile mode: \ll
 " Forward-search: \lv
 " Backward-search: No idea yet
