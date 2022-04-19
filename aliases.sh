@@ -30,15 +30,10 @@ alias glg='git log --graph --oneline --decorate --all'
 alias gitpom="git push -u origin main"
 
 ### tmux aliases ###
-alias tmux-ks="tmux kill-server"
+alias tmuxks="tmux kill-server"
 
 ### C/C++ Compiler Aliases ###
-# this uses g++ and gcc instead of macOS's clang
-alias g++="g++-9"
-alias gcc="gcc-9"
-alias remake="make clean; make"
 
 ### Python Aliases ###
 
 ### Personal Folder Aliases -- update to fit needs ###
-alias repos="cdf ~/repos"

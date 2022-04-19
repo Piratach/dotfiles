@@ -58,9 +58,9 @@ function gitcm() {
 	git commit -m "$1"; 
 }
 
-function token() {
-  echo "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";
-}
+# function token() {
+  # echo "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";
+# }
 
 # streamlink functions
 function twitch() {

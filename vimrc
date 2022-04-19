@@ -23,7 +23,7 @@ set viminfo='100,<500,s100,h
 
 " ---------------------------
 " Default Config - indent 2 spaces, maximum char per line = 80
-autocmd FileType * setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent expandtab colorcolumn=120
+autocmd FileType * setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent expandtab colorcolumn=90
 
 " ---------------------------
 " Language Specific Configs
@@ -31,8 +31,8 @@ autocmd FileType * setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent expa
 " C/C++ (includes cu, c.doxygen, cc, hpp etc.)
 " cpp files - indent 4 spaces, maximum char per line = 120
 " Currently changed for the duration of the wunderpus project
-autocmd FileType c* setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent expandtab colorcolumn=120
-autocmd FileType h* setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent expandtab colorcolumn=120
+autocmd FileType c* setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent expandtab colorcolumn=90
+autocmd FileType h* setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent expandtab colorcolumn=90
 
 " clang-format (manually - ctrl+k)
 map <C-k> :py3f /usr/local/Cellar/clang-format/11.0.0/share/clang/clang-format.py<CR>
