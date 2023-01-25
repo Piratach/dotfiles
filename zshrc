@@ -25,7 +25,7 @@ HIST_STAMPS="yyyy-mm-dd" # the most logical format :-)
 
 # other optional plugins: osx, brew, ssh-agent
 # too many plugins can slow down startup time
-plugins=(git zsh-autosuggestions z ssh-agent)
+plugins=(git zsh-autosuggestions z)
 
 # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=59'
 
@@ -56,5 +56,3 @@ source $ZSH/oh-my-zsh.sh
 # Recommended directory $ZSH_CUSTOM/
 source $HOME/.zsh_functions.sh
 source $HOME/.aliases.sh
-
-export PATH="$PATH:$HOME/.spicetify"
