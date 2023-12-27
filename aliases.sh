@@ -1,6 +1,3 @@
-### General aliases ###
-alias smlnj="sml"
-
 ### Git aliases ###
 alias gi="git init"
 alias gs="git status -sbu"
@@ -20,8 +17,9 @@ alias gitpom="git push -u origin main"
 alias tmux="tmux -2"
 alias ks="tmux kill-server"
 
-### C/C++ Compiler Aliases ###
-
-### Python Aliases ###
+### SML aliases ###
+alias smlnj="sml"
 
 ### Personal Folder Aliases -- update to fit needs ###
+alias repos="cdf ~/repos"
+alias coin="~/Downloads/coin.bin"

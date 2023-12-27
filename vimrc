@@ -22,15 +22,14 @@ set viminfo='100,<500,s100,h
 " h Disables search highlighting when Vim starts.
 
 " ---------------------------
-" Default Config - indent 2 spaces, maximum char per line = 80
+" Default Config - indent 4 spaces, maximum char per line = 90
 autocmd FileType * setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent expandtab colorcolumn=90
 
 " ---------------------------
 " Language Specific Configs
 " ---------------------------
 " C/C++ (includes cu, c.doxygen, cc, hpp etc.)
-" cpp files - indent 4 spaces, maximum char per line = 120
-" Currently changed for the duration of the wunderpus project
+" cpp files - indent 4 spaces, maximum char per line = 90
 autocmd FileType c* setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent expandtab colorcolumn=90
 autocmd FileType h* setlocal tabstop=4 shiftwidth=4 softtabstop=4 autoindent expandtab colorcolumn=90
 
@@ -59,7 +58,7 @@ set mouse=a " allows the use of mouse
 
 " mappings
 
- " jj as es
+ " jj as esc
  inoremap jj <Esc>
  " clear highlight to K
  nnoremap & :let @/ = "" <Bar> <CR>
@@ -145,11 +144,10 @@ Plugin 'VundleVim/Vundle.vim'
 
 " run vim +PluginInstall +qall from command line to install plugins
 " or run :PluginInstall in vim
+" some of these are not necessary, comment out if not used.
 " ----- Vim Plugins --------
 Plugin 'dense-analysis/ale'
 Plugin 'edkolev/tmuxline.vim'
-Plugin 'fatih/vim-go'
-Plugin 'jez/vim-better-sml'
 Plugin 'jez/vim-ispc'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/seoul256.vim'
@@ -223,7 +221,7 @@ vnoremap + :call nerdcommenter#Comment(0,"toggle")<CR>
 " Backward-search: No idea yet
 
 let g:tex_flavor='latex'
-let g:vimtex_view_method='zathura'
+let g:vimtex_view_method='mupdf'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
@@ -231,7 +229,7 @@ let g:tex_conceal='abdmg'
 let g:Tex_DefaultTargetFormat='pdf'
 
 " Never Forget, To set the default viewer:: Very Important
-let g:Tex_ViewRule_pdf = 'zathura'
+let g:Tex_ViewRule_pdf = 'mupdf'
 
 function! Synctex()
         " remove 'silent' for debugging
