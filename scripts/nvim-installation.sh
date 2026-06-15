@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "Installing vim..."
+echo "Installing neovim..."
 
 case "$(uname -s)" in
     Darwin)
@@ -9,13 +9,13 @@ case "$(uname -s)" in
             echo "Homebrew not found. Install from https://brew.sh/ first."
             exit 1
         fi
-        brew install vim
+        brew install neovim ripgrep
         ;;
     Linux)
         if [ -f /etc/fedora-release ] || command -v dnf >/dev/null 2>&1; then
-            sudo dnf install -y vim
+            sudo dnf install -y neovim ripgrep
         else
-            echo "Unsupported Linux distribution. Install vim manually."
+            echo "Unsupported Linux distribution. Install neovim and ripgrep manually."
             exit 1
         fi
         ;;
@@ -25,6 +25,10 @@ case "$(uname -s)" in
         ;;
 esac
 
-cp vimrc ~/.vimrc
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
+echo "Copying neovim config to ~/.config/nvim..."
+mkdir -p "$HOME/.config"
+rm -rf "$HOME/.config/nvim"
+cp -r nvim "$HOME/.config/nvim"
+
+echo "Restoring plugins from lazy-lock.json..."
+nvim --headless "+Lazy! restore" +qa

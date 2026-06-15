@@ -1,5 +1,5 @@
 #!/bin/bash
 
-# vim installation
-./scripts/vim-installation.sh
+# ./scripts/vim-installation.sh
+./scripts/nvim-installation.sh
 ./scripts/zsh-installation.sh
